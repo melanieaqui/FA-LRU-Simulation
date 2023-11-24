@@ -35,7 +35,6 @@ public class Main {
                 ageUp(findData(data));
                 blocks.get(findData(data)).resetAge(); 
                 cache_hit++;
-                //blocks.set((findData(data)),new Block(data));
             }      
             //not yet full
             else if (cache_blocks!=blocks.size()){
@@ -51,7 +50,6 @@ public class Main {
                 int temp =findOldest();
                 ageUp(temp);
                 blocks.get(temp).replaceData(data);
-                //blocks.set((findOldest()),new Block(data));
                 cache_miss++;
             }
            
@@ -60,8 +58,12 @@ public class Main {
             }      
             
         }
-        System.out.println("Cache hit: "+cache_hit+"/"+memory_blocks);
-        System.out.println("Cache miss: "+cache_miss+"/"+memory_blocks);
+        System.out.println("Cache hit count: "+cache_hit);
+        System.out.println("Cache miss count: "+cache_miss);
+
+        System.out.println("Cache hit rate: "+ (float)cache_hit/memory_blocks);
+        System.out.println("Cache miss count: "+ (float)cache_miss/memory_blocks);
+
         scanner.close();
         
 
