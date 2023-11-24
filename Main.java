@@ -1,0 +1,121 @@
+import java.util.*;
+
+public class Main {
+    //private int cache_hit;
+    //private int cache_miss;
+
+    private static int cache_blocks = 4; //for testing purposes
+
+    private static int memory_blocks;
+
+    static List<Block> blocks = new ArrayList<Block>();
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+
+		System.out.println("Enter number of memory blocks:");
+
+        memory_blocks =scanner.nextInt();
+        addData();
+        scanner.close();
+
+	}
+    private static void addData(){
+        int cache_hit = 0;
+        int cache_miss = 0;
+        Scanner scanner = new Scanner(System.in);
+        int data;
+        for (int i=0;i<memory_blocks; i++){
+            //user input Data
+            System.out.println("Enter Data");
+
+            data = scanner.nextInt(); 
+
+            //hit
+            if(findData(data)!=-999){
+                ageUp(findData(data));
+                blocks.get(findData(data)).resetAge(); 
+                cache_hit++;
+                //blocks.set((findData(data)),new Block(data));
+            }      
+            //not yet full
+            else if (cache_blocks!=blocks.size()){
+                if(findData(data) == -999)  {
+                ageUp(-999);
+                blocks.add(new Block(data));
+                cache_miss++;
+            }
+            
+            }
+            //data is full so replace oldest
+            else if (cache_blocks == blocks.size()){
+                int temp =findOldest();
+                ageUp(temp);
+                blocks.get(temp).replaceData(data);
+                //blocks.set((findOldest()),new Block(data));
+                cache_miss++;
+            }
+           
+            for (int j = 0; j< blocks.size();j++){
+                System.out.println("block: "+j+" Age:"+blocks.get(j).getAge()+" Data: "+ blocks.get(j).getData());
+            }      
+            
+        }
+        System.out.println("Cache hit: "+cache_hit+"/"+memory_blocks);
+        System.out.println("Cache miss: "+cache_miss+"/"+memory_blocks);
+        scanner.close();
+        
+
+    }
+    
+    //return index
+    private static int findOldest(){
+        int temp = -999;
+        int i;
+        int index=-999;
+
+        for(i=0;i<blocks.size();i++){
+            if (blocks.get(i).getAge()>temp){
+                temp = blocks.get(i).getAge();
+                index=i;
+            }
+               
+        }
+
+        return index;
+    }
+    private static int findData(int data){
+        int i;
+        for(i=0;i<blocks.size();i++){
+            if(data== blocks.get(i).getData())
+                return i;
+        }
+        return -999; //not found
+    }
+    
+    private static void ageUp(int index){
+        
+        //int oldest= blocks.get(findOldest()).getAge();
+        int i;
+        int age;
+        if (index!=-999){
+            age= blocks.get(index).getAge();
+            //System.out.println(age);
+        }
+        else
+            age=-9999;
+
+        //age up 
+        for (i=0;i<blocks.size();i++){ 
+            //age everything
+            if (index ==-999){
+                blocks.get(i).addAge();
+            }
+            //age younger than the block at index
+            else if(index!=-999 && blocks.get(i).getAge()<age){
+                 blocks.get(i).addAge();
+            }
+        }
+        
+    }
+
+}
