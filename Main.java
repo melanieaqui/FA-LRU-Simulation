@@ -38,6 +38,7 @@ public class Main {
             }      
             //not yet full
             else if (cache_blocks!=blocks.size()){
+                //miss
                 if(findData(data) == -999)  {
                 ageUp(-999);
                 blocks.add(new Block(data));
@@ -45,7 +46,7 @@ public class Main {
             }
             
             }
-            //data is full so replace oldest
+            //data is full so replace oldest and not hit
             else if (cache_blocks == blocks.size()){
                 int temp =findOldest();
                 ageUp(temp);
