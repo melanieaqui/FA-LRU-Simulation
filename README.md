@@ -1,5 +1,5 @@
 # FA-LRU-Simulation
 To run the app:
-  javac Main.java
-  java Main
+  javac Main.java then
+  java Main in the console
   
