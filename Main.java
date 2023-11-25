@@ -22,6 +22,8 @@ public class Main {
     private static void addData(){
         int cache_hit = 0;
         int cache_miss = 0;
+        float hit_rate;
+        float miss_rate;
         Scanner scanner = new Scanner(System.in);
         int data;
         for (int i=0;i<memory_blocks; i++){
@@ -32,8 +34,9 @@ public class Main {
 
             //hit
             if(findData(data)!=-999){
-                ageUp(findData(data));
-                blocks.get(findData(data)).resetAge(); 
+                int dataIndex = findData(data);
+                ageUp(dataIndex);
+                blocks.get(dataIndex).resetAge(); 
                 cache_hit++;
             }      
             //not yet full
@@ -46,11 +49,11 @@ public class Main {
             }
             
             }
-            //data is full so replace oldest and not hit
+            //data is full and not hit so replace oldest 
             else if (cache_blocks == blocks.size()){
-                int temp =findOldest();
-                ageUp(temp);
-                blocks.get(temp).replaceData(data);
+                int oldestIndex =findOldest();
+                ageUp(oldestIndex);
+                blocks.get(oldestIndex).replaceData(data);
                 cache_miss++;
             }
            
@@ -65,11 +68,15 @@ public class Main {
             }      
             
         }
+        System.out.println("");
+        hit_rate = (float)cache_hit/memory_blocks;
+        miss_rate = (float)cache_miss/memory_blocks;
+
         System.out.println("Cache hit count: "+cache_hit);
         System.out.println("Cache miss count: "+cache_miss);
-
-        System.out.println("Cache hit rate: "+ (float)cache_hit/memory_blocks);
-        System.out.println("Cache miss count: "+ (float)cache_miss/memory_blocks);
+        
+        System.out.println("Cache hit rate: "+ hit_rate);
+        System.out.println("Cache miss count: "+ miss_rate);
 
         scanner.close();
         
