@@ -62,11 +62,11 @@ public class Cache{
         hit_rate = (float)cache_hit/memory_blocks;
         miss_rate = (float)cache_miss/memory_blocks;
 
-        System.out.println("Cache hit count: "+cache_hit);
-        System.out.println("Cache miss count: "+cache_miss);
+        System.out.println("Cache Hit Count: "+cache_hit);
+        System.out.println("Cache Miss Count: "+cache_miss);
         
-        System.out.println("Cache hit rate: "+ hit_rate);
-        System.out.println("Cache miss count: "+ miss_rate);
+        System.out.println("Cache Hit Rate: "+ hit_rate);
+        System.out.println("Cache Miss Rate: "+ miss_rate);
 
         scanner.close();
         
