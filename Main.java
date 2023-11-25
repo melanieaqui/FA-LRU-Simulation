@@ -53,8 +53,14 @@ public class Main {
                 cache_miss++;
             }
            
-            for (int j = 0; j< blocks.size();j++){
-                System.out.println("block: "+j+" Age:"+blocks.get(j).getAge()+" Data: "+ blocks.get(j).getData());
+            for (int j = 0; j< cache_blocks;j++){
+                try{
+                    System.out.println("block: "+j+" Age:"+blocks.get(j).getAge()+" Data: "+ blocks.get(j).getData());
+
+                }
+                catch(IndexOutOfBoundsException e) {
+                    System.out.println("block: "+j+ " Age: "+ "Data: Empty");
+                }
             }      
             
         }
