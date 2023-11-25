@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Cache{
     private int memory_blocks;
-    private int cache_blocks = 4;
+    private int cache_blocks = 4; //for testing purposes
     static List<Block> blocks = new ArrayList<Block>();
     public Cache(int memory_blocks){
         this.memory_blocks=memory_blocks;
