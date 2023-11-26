@@ -5,15 +5,18 @@ import java.util.Scanner;
 public class Cache{
     private int memory_blocks;
     private int cache_blocks = 4; //for testing purposes
+    private int cache_line =64;      
+    private int cache_hit = 0;
+    private int cache_miss = 0;
+    private float hit_rate;
+    private float miss_rate;
     static List<Block> blocks = new ArrayList<Block>();
+
     public Cache(int memory_blocks){
         this.memory_blocks=memory_blocks;
     }
     public void addData(){
-        int cache_hit = 0;
-        int cache_miss = 0;
-        float hit_rate;
-        float miss_rate;
+  
         Scanner scanner = new Scanner(System.in);
         int data;
         for (int i=0;i<memory_blocks; i++){
@@ -52,6 +55,7 @@ public class Cache{
                     System.out.println("Block: "+j+" |Age:"+blocks.get(j).getAge()+" |Data: "+ blocks.get(j).getData());
 
                 }
+                //if block is null or doesn't exist
                 catch(IndexOutOfBoundsException e) {
                     System.out.println("Block: "+j+ " |Age:  "+ "|Data: Empty");
                 }
@@ -123,5 +127,16 @@ public class Cache{
         }
         
     }
+
+    public float getAveMemAccessTime(){
+        //load through
+        float miss_penalty = 1+ 10+1; //not confident cause load through nakalagay sa specs
+        float ave_access_time =hit_rate + miss_rate*miss_penalty;
+        return ave_access_time;
+    } 
+    public float getTotalAccessTime(){
+        return cache_hit*cache_line *1+ cache_miss*cache_line*
+    }
+
 
 }
