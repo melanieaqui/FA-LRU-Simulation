@@ -19,80 +19,77 @@ public class Cache{
     public Cache(int memory_blocks){
         this.memory_blocks=memory_blocks;
     }
+
     public void addData(){
         File file= new File("Log.txt");
         try{
             FileWriter writer= new FileWriter(file);
         
-
-  
-        Scanner scanner = new Scanner(System.in);
-        int data;
-        for (int i=0;i<memory_blocks; i++){
+            Scanner scanner = new Scanner(System.in);
+            int data;
+            for (int i=0;i<memory_blocks; i++){
             //user input Data
-            System.out.println("Enter Data");
+                System.out.println("Enter Data");
 
-            data = scanner.nextInt(); 
+                data = scanner.nextInt(); 
 
             //hit
-            if(findData(data)!=-999){
-                int dataIndex = findData(data);
-                ageUp(dataIndex);
-                blocks.get(dataIndex).resetAge(); 
-                cache_hit++;
-            }      
+                if(findData(data)!=-999){
+                    int dataIndex = findData(data);
+                    ageUp(dataIndex);
+                    blocks.get(dataIndex).resetAge(); 
+                    cache_hit++;
+                }      
             //not yet full
-            else if (cache_blocks!=blocks.size()){
+                else if (cache_blocks!=blocks.size()){
                 //miss
-                if(findData(data) == -999)  {
-                ageUp(-999);
-                blocks.add(new Block(data));
-                cache_miss++;
-            }
+                    if(findData(data) == -999)  {
+                    ageUp(-999);
+                    blocks.add(new Block(data));
+                    cache_miss++;
+                    }
             
-            }
+                }   
             //data is full and not hit so replace oldest 
-            else if (cache_blocks == blocks.size()){
-                int oldestIndex =findOldest();
-                ageUp(oldestIndex);
-                blocks.get(oldestIndex).replaceData(data);
-                cache_miss++;
-            }
-
-            hit_rate = (float)cache_hit/memory_blocks;
-            miss_rate = (float)cache_miss/memory_blocks;
-            if (i==memory_blocks-1){
-                writeTextLog(data, writer,true);
-            }
-            else
-                 writeTextLog(data, writer,false);
-            //display block step by step in console
-
-            for (int j = 0; j< cache_blocks;j++){
-                try{
-                    System.out.println("Block: "+j+" |Age:"+blocks.get(j).getAge()+" |Data: "+ blocks.get(j).getData());
-
+                else if (cache_blocks == blocks.size()){
+                    int oldestIndex =findOldest();
+                    ageUp(oldestIndex);
+                    blocks.get(oldestIndex).replaceData(data);
+                    cache_miss++;
                 }
-                //if block is null or doesn't exist
-                catch(IndexOutOfBoundsException e) {
-                    System.out.println("Block: "+j+ " |Age:  "+ "|Data: Empty");
+
+                hit_rate = (float)cache_hit/memory_blocks;
+                miss_rate = (float)cache_miss/memory_blocks;
+                if (i==memory_blocks-1){
+                    writeTextLog(data, writer,true);
                 }
-            }      
+                else
+                    writeTextLog(data, writer,false);
             
-        }
-        
-        System.out.println("");
-       
+                //display block step by step in console
+                for (int j = 0; j< cache_blocks;j++){
+                    try{
+                       System.out.println("Block: "+j+" |Age:"+blocks.get(j).getAge()+" |Data: "+ blocks.get(j).getData());
 
-        System.out.println("Cache Hit Count: "+cache_hit);
-        System.out.println("Cache Miss Count: "+cache_miss);
+                    }
+                //if block is null or doesn't exist
+                    catch(IndexOutOfBoundsException e) {
+                        System.out.println("Block: "+j+ " |Age:  "+ "|Data: Empty");
+                    }
+                }      
+            
+            }
         
-        System.out.println("Cache Hit Rate: "+ hit_rate);
-        System.out.println("Cache Miss Rate: "+ miss_rate);
+            System.out.println("");
+            System.out.println("Cache Hit Count: "+cache_hit);
+            System.out.println("Cache Miss Count: "+cache_miss);
+        
+            System.out.println("Cache Hit Rate: "+ hit_rate);
+            System.out.println("Cache Miss Rate: "+ miss_rate);
 
-        scanner.close();
+            scanner.close();
         
-    }catch(Exception e){
+        }catch(Exception e){
             System.out.println(e);
         }
     }
