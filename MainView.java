@@ -108,30 +108,30 @@ public class MainView {
     }
 
     private void displayCacheState() {
+        // Build the string representing the current cache state
         StringBuilder displayText = new StringBuilder();
-
+    
         // Display each cache block
         for (int i = 0; i < cache.getCacheBlocks(); i++) {
             try {
                 Block block = Cache.blocks.get(i);
                 displayText.append("Block: ").append(i)
-                        .append(" |Age: ").append(block.getAge())
-                        .append(" |Data: ").append(block.getData()).append("\n");
+                           .append(" |Age: ").append(block.getAge())
+                           .append(" |Data: ").append(block.getData()).append("\n");
             } catch (IndexOutOfBoundsException e) {
                 displayText.append("Block: ").append(i).append(" |Age: ").append(" |Data: Empty").append("\n");
             }
         }
-
+    
         // Display cache statistics
         displayText.append("\nCache Hit Count: ").append(cache.getCacheHit())
-                .append("\nCache Miss Count: ").append(cache.getCacheMiss())
-                .append("\nCache Hit Rate: ").append(cache.getHitRate())
-                .append("\nCache Miss Rate: ").append(cache.getMissRate());
-
-        resultArea.setText(displayText.toString());
-}
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new MainView());
+                   .append("\nCache Miss Count: ").append(cache.getCacheMiss())
+                   .append("\nCache Hit Rate: ").append(cache.getHitRate())
+                   .append("\nCache Miss Rate: ").append(cache.getMissRate())
+                   .append("\n----------------------------------------\n");
+    
+        // Append the new results to the existing text
+        resultArea.append(displayText.toString());
     }
+    
 }
