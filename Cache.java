@@ -9,7 +9,8 @@ import java.util.Scanner;
 public class Cache{
     private int memory_blocks;
     private int cache_blocks = 4; //for testing purposes
-    private int cache_line =64;      
+    private int cache_line =64;  
+    private int memory_access_count=0;    
     private int cache_hit = 0;
     private int cache_miss = 0;
     private float hit_rate;
@@ -57,9 +58,10 @@ public class Cache{
                     blocks.get(oldestIndex).replaceData(data);
                     cache_miss++;
                 }
+                memory_access_count++;
 
-                hit_rate = (float)cache_hit/memory_blocks;
-                miss_rate = (float)cache_miss/memory_blocks;
+                hit_rate = (float)cache_hit/ memory_access_count;
+                miss_rate = (float)cache_miss/ memory_access_count;
                 if (i==memory_blocks-1){
                     writeTextLog(data, writer,true);
                 }
@@ -185,15 +187,17 @@ public class Cache{
 }      
 public void incrementCacheHit() {
     cache_hit++;
+    memory_access_count++;
 }
 
 public void incrementCacheMiss() {
     cache_miss++;
+    memory_access_count++;
 }
 
 public void updateRates() {
-    hit_rate = (float) cache_hit / memory_blocks;
-    miss_rate = (float) cache_miss / memory_blocks;
+    hit_rate = (float) cache_hit /  memory_access_count;
+    miss_rate = (float) cache_miss /  memory_access_count;
 }
 public int getCacheBlocks() {
     return cache_blocks;
