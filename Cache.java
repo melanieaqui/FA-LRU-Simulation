@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Cache{
     private int memory_blocks;
-    private int cache_blocks = 4; //for testing purposes
+    private int cache_blocks = 32; 
     private int cache_line =64;  
     private int memory_access_count=0;    
     private int cache_hit = 0;
@@ -217,6 +217,9 @@ public float getHitRate() {
 
 public float getMissRate() {
     return miss_rate;
+}
+public int getAccessCount(){
+    return memory_access_count;
 }
 
         

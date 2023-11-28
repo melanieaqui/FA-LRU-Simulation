@@ -124,7 +124,8 @@ public class MainView {
         }
     
         // Display cache statistics
-        displayText.append("\nCache Hit Count: ").append(cache.getCacheHit())
+        displayText.append("\nMemory Access Count: ").append(cache.getAccessCount())
+                   .append("\nCache Hit Count: ").append(cache.getCacheHit())
                    .append("\nCache Miss Count: ").append(cache.getCacheMiss())
                    .append("\nCache Hit Rate: ").append(cache.getHitRate())
                    .append("\nCache Miss Rate: ").append(cache.getMissRate())
