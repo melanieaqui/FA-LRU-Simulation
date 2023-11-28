@@ -95,7 +95,7 @@ public class Cache{
     }
     
     //return index of oldest block
-    private  int findOldest(){
+    public int findOldest(){
         int temp = -999;
         int i;
         int index=-999;
@@ -110,7 +110,7 @@ public class Cache{
 
         return index;
     }
-    private static int findData(int data){
+    public int findData(int data){
         int i;
         for(i=0;i<blocks.size();i++){
             if(data== blocks.get(i).getData())
@@ -119,7 +119,7 @@ public class Cache{
         return -999; //not found
     }
     
-    private static void ageUp(int index){
+    public void ageUp(int index){
         
         //int oldest= blocks.get(findOldest()).getAge();
         int i;
@@ -183,6 +183,37 @@ public class Cache{
         System.out.println(e);
     }            
 }      
+public void incrementCacheHit() {
+    cache_hit++;
+}
+
+public void incrementCacheMiss() {
+    cache_miss++;
+}
+
+public void updateRates() {
+    hit_rate = (float) cache_hit / memory_blocks;
+    miss_rate = (float) cache_miss / memory_blocks;
+}
+public int getCacheBlocks() {
+    return cache_blocks;
+}
+
+public int getCacheHit() {
+    return cache_hit;
+}
+
+public int getCacheMiss() {
+    return cache_miss;
+}
+
+public float getHitRate() {
+    return hit_rate;
+}
+
+public float getMissRate() {
+    return miss_rate;
+}
 
         
 }
