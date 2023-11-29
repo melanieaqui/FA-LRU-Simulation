@@ -101,7 +101,7 @@ public class MainView {
                 .append("\nCache Hit Rate: ").append(this.cache.getHitRate())
                 .append("\nCache Miss Rate: ").append(this.cache.getMissRate())
                 .append("\nAverage Memory Access Time:").append(this.cache.getAveMemAccessTime())
-                // .append("\nTotal Access Time:").append(this.cache.getTotalAccessTime)
+                .append("\nTotal Memory Access Time: ").append(this.cache.getTotalMemoryAccessTime()).append("\n")
                 .append("\n----------------------------------------\n");
         this.resultArea.append(displayText.toString());
     }
