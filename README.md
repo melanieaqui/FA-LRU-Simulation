@@ -993,5 +993,8 @@ Cache Misses: High at the beginning and after the mid-sequence repetition, indic
 
 Hit and Miss Rates: More balanced compared to the random sequence, showing better cache performance due to repetition.
 
-
+|AQUINO, Melanie  |  Back-end code, debugging|
+|KHO, John			  | Front-end code, debugging |
+| SANTOS, Jose    | Back-end code    s        |
+|PALAFOX, Luis		| Debugging, Test Case   |
 
