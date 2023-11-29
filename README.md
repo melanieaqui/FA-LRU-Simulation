@@ -492,6 +492,7 @@ The cache has 32 blocks (n = 32), and the test involves 4n (128) random accesses
 FA + LRU Load-Through Read Policy is applied.
 
 Output:
+
 Blocks Status: Shows the content of each block with their ages after processing the sequence.
 Memory Access Count: 128 (4n, as there are 128 accesses).
 Cache Hit Count: 2 (only two accesses were hits).
@@ -502,13 +503,21 @@ Average Memory Access Time: 11.828125 (calculated based on hit rate, miss rate, 
 Total Memory Access Time: 1514.0 (128 * 11.828125).
 
 Analysis:
+
 Random Nature: Unlike sequential access, a random sequence does not guarantee any pattern. Hence, the cache cannot effectively predict and retain frequently used data.
+
 Cache Hits: The low number of cache hits (2 in 128) indicates that the sequence didn't often revisit the same data blocks within a short period, making the cache less effective.
+
 Cache Misses: High number of misses suggests most data accesses were unique within the tested sequence, leading to frequent cache replacements.
+
 Hit and Miss Rates: Reflect the inefficiency of the cache in this random access pattern.
+
 Memory Access Time: Higher than ideal due to the high number of misses.
+
 Total Memory Access Time: Sums up the total time taken for all accesses. The high value indicates inefficiency in handling random data sequences.
+
 LRU Limitation: Demonstrates the limitation of LRU (Least Recently Used) policy in handling random data accesses.
+
 
 c.) Mid-repeat blocks: Start at block 0, repeat the sequence in the middle two times up to n-1 blocks, after
 which continue up to 2n. Then, repeat the sequence four times. Example: if n=8, sequence=0, 1,2,3,4,5,6,
@@ -613,24 +622,39 @@ Explanation:
 
 
 Context:
+
 This test case involves a sequence that starts at block 0, repeats a part of the sequence in the middle, and then continues up to 2n blocks.
 The cache has 32 blocks (n = 32).
 The sequence repeats four times.
 FA + LRU Load-Through Read Policy is applied.
 
 Output:
+
 Blocks Status: Displays the current data in each cache block along with their ages.
+
 Memory Access Count: 126 (each block is accessed once, and the middle sequence repeats twice).
+
 Cache Hit Count: 62 (hits occur during the mid-sequence repetition).
+
 Cache Miss Count: 64 (initial accesses and accesses after the mid-sequence repetition).
+
 Cache Hit Rate: 0.4920635 (62 hits out of 126 accesses).
+
 Cache Miss Rate: 0.50793654 (64 misses out of 126 accesses).
+
 Average Memory Access Time: 6.587302 (calculated based on hit and miss rates, and miss penalty).
+
 Total Memory Access Time: 830.00006 (126 * 6.587302).
-Analysis
+
+Analysis:
+
 Mid-Sequence Repetition: The test case is designed to test the effectiveness of the cache in handling partial sequence repetitions.
+
 Cache Hits: Occur during the repeated mid-sequence, suggesting the cache successfully retains frequently accessed data for some time.
+
 Cache Misses: High at the beginning and after the mid-sequence repetition, indicating new data accesses replace older ones.
+
 Hit and Miss Rates: More balanced compared to the random sequence, showing better cache performance due to repetition.
+
 
 
