@@ -1,10 +1,10 @@
 # FA-LRU-Simulation
 
 ### Authors
-- AQUINO, Melanie 
-- KHO, John 
-- PALAFOX, Luis
-- SANTOS, Jose
+- AQUINO, Melanie | code, write-up (project specs)
+- KHO, John | code, video, GUI
+- PALAFOX, Luis | code, write-up (test cases)
+- SANTOS, Jose | code, write-up (test cases)
 
 To run the fapp open the FA-LRU-Simulator.jar file. Alternatively you may run the java source codes from your console by typing 'javac Main.java' then 'java Main'. 
 
