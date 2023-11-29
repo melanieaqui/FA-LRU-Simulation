@@ -1166,11 +1166,11 @@ Hit and Miss Rates: More balanced compared to the random sequence, showing bette
 
 
 ## Summary of Contributions
+
+|Name           | Contributions   
+|---------------|-------------------------------------------------|
 |AQUINO, Melanie| Back-end code, debugging                        |
-
-|KHO, John      | Front-end code, debugging, walkthrough vide     |
-
-| SANTOS, Jose  | Back-end code                                   |
-
+|KHO, John      | Front-end code, debugging, walkthrough video    |
+| SANTOS, Jose  | Back-end code, debugging                        |
 |PALAFOX, Luis  | Debugging, Test Case                            |
 
