@@ -1,138 +1,105 @@
-import javax.swing.*;
-import java.awt.*;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class MainView {
-    private JFrame mainFrame;
-    private JTextField memoryBlocksField, dataInputField;
-    private JButton initializeButton, addButton;
+    private JFrame mainFrame = new JFrame("FA+LRU");
+    private JTextField memoryBlocksField;
+    private JTextField dataInputField;
+    private JButton initializeButton;
+    private JButton addButton;
     private JTextArea resultArea;
     private Cache cache;
 
     public MainView() {
-        mainFrame = new JFrame("RA+LRU");
-        mainFrame.setLayout(new FlowLayout());
-        mainFrame.setSize(600, 400);
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.mainFrame.setLayout(new FlowLayout());
+        this.mainFrame.setSize(600, 400);
+        this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.memoryBlocksField = new JTextField(10);
+        this.dataInputField = new JTextField(10);
+        this.initializeButton = new JButton("Initialize Cache");
+        this.addButton = new JButton("Add Data(Separate with Spaces)");
+        this.resultArea = new JTextArea(15, 50);
+        this.resultArea.setEditable(false);
+        this.dataInputField.setEnabled(false);
+        this.addButton.setEnabled(false);
+        this.mainFrame.add(new JLabel("Enter number of memory blocks:"));
+        this.mainFrame.add(this.memoryBlocksField);
+        this.mainFrame.add(this.initializeButton);
+        this.mainFrame.add(new JLabel("Enter Data to Add:"));
+        this.mainFrame.add(this.dataInputField);
+        this.mainFrame.add(this.addButton);
+        this.mainFrame.add(new JScrollPane(this.resultArea));
 
-        memoryBlocksField = new JTextField(10);
-        dataInputField = new JTextField(10);
-        initializeButton = new JButton("Initialize Cache");
-        addButton = new JButton("Add Data");
-
-        resultArea = new JTextArea(15, 50);
-        resultArea.setEditable(false);
-
-        // Set the initial state of dataInputField and addButton
-        dataInputField.setEnabled(false);
-        addButton.setEnabled(false);
-
-        // Add components to the mainFrame
-        mainFrame.add(new JLabel("Enter number of memory blocks:"));
-        mainFrame.add(memoryBlocksField);
-        mainFrame.add(initializeButton);
-        mainFrame.add(new JLabel("Enter Data to Add:"));
-        mainFrame.add(dataInputField);
-        mainFrame.add(addButton);
-        mainFrame.add(new JScrollPane(resultArea));
-
-        // Action listener for the initialize button
-        initializeButton.addActionListener(new ActionListener() {
-            @Override
+        this.initializeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int memoryBlocks = Integer.parseInt(memoryBlocksField.getText());
-                    cache = new Cache(memoryBlocks);
-                    dataInputField.setEnabled(true);
-                    addButton.setEnabled(true);
+                    int memoryBlocks = Integer.parseInt(MainView.this.memoryBlocksField.getText());
+                    MainView.this.cache = new Cache(memoryBlocks);
+                    MainView.this.dataInputField.setEnabled(true);
+                    MainView.this.addButton.setEnabled(true);
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Please enter a valid integer for memory blocks.");
+                    JOptionPane.showMessageDialog(MainView.this.mainFrame, "Please enter a valid integer for memory blocks.");
                 }
             }
         });
 
-        // Action listener for the add button
-        addButton.addActionListener(new ActionListener() {
-            @Override
+        this.addButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
-                    int data = Integer.parseInt(dataInputField.getText());
-                    addDataToCache(data);
-                    displayCacheState();
-                    dataInputField.setText(""); // Clear the field after adding data
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(mainFrame, "Please enter a valid integer for data.");
-                }
+                String inputData = MainView.this.dataInputField.getText();
+                MainView.this.addDataToCache(inputData);
+                MainView.this.displayCacheState();
+                MainView.this.dataInputField.setText("");
             }
         });
-
-        mainFrame.setVisible(true);
+        this.mainFrame.setVisible(true);
     }
 
-    private void addDataToCache(int data) {
-        try {
-            FileWriter writer = new FileWriter("Log.txt", true); // Open the log file in append mode
-            int dataIndex;
-
-            // Check for cache hit
-            if ((dataIndex = cache.findData(data)) != -999) {
-                cache.ageUp(dataIndex);
-                Cache.blocks.get(dataIndex).resetAge();
-                cache.incrementCacheHit();
-            }
-            // Handle cache miss
-            else {
-                cache.ageUp(-999);
-                if (cache.getCacheBlocks() != Cache.blocks.size()) {
-                    Cache.blocks.add(new Block(data));
-                } else {
-                    int oldestIndex = cache.findOldest();
-                    Cache.blocks.get(oldestIndex).replaceData(data);
+    private void addDataToCache(String inputData) {
+        // Split the input data by spaces
+        String[] dataItems = inputData.split("\\s+");
+        try (FileWriter writer = new FileWriter("Log.txt", true)) {
+            for (String item : dataItems) {
+                try {
+                    int data = Integer.parseInt(item);
+                    this.cache.addData(data, writer);
+                } catch (NumberFormatException e) {
+                    // Handle the case where the input is not a valid integer
+                    System.out.println("Invalid input: " + item);
                 }
-                cache.incrementCacheMiss();
             }
-
-            // Update hit rate and miss rate
-            cache.updateRates();
-
-            // Log the current state
-            cache.writeTextLog(data, writer, false);
-            writer.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void displayCacheState() {
-        // Build the string representing the current cache state
         StringBuilder displayText = new StringBuilder();
-    
-        // Display each cache block
-        for (int i = 0; i < cache.getCacheBlocks(); i++) {
+        for (int i = 0; i < this.cache.getCacheBlocks(); i++) {
             try {
                 Block block = Cache.blocks.get(i);
                 displayText.append("Block: ").append(i)
-                           .append(" |Age: ").append(block.getAge())
-                           .append(" |Data: ").append(block.getData()).append("\n");
+                        .append(" |Age: ").append(block.getAge())
+                        .append(" |Data: ").append(block.getData()).append("\n");
             } catch (IndexOutOfBoundsException e) {
                 displayText.append("Block: ").append(i).append(" |Age: ").append(" |Data: Empty").append("\n");
             }
         }
-    
-        // Display cache statistics
-        displayText.append("\nMemory Access Count: ").append(cache.getAccessCount())
-                   .append("\nCache Hit Count: ").append(cache.getCacheHit())
-                   .append("\nCache Miss Count: ").append(cache.getCacheMiss())
-                   .append("\nCache Hit Rate: ").append(cache.getHitRate())
-                   .append("\nCache Miss Rate: ").append(cache.getMissRate())
-                   .append("\n----------------------------------------\n");
-    
-        // Append the new results to the existing text
-        resultArea.append(displayText.toString());
+        displayText.append("\nMemory Access Count: ").append(this.cache.getAccessCount())
+                .append("\nCache Hit Count: ").append(this.cache.getCacheHit())
+                .append("\nCache Miss Count: ").append(this.cache.getCacheMiss())
+                .append("\nCache Hit Rate: ").append(this.cache.getHitRate())
+                .append("\nCache Miss Rate: ").append(this.cache.getMissRate())
+                .append("\n----------------------------------------\n");
+        this.resultArea.append(displayText.toString());
     }
-    
 }

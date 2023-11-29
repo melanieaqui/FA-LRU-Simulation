@@ -21,7 +21,7 @@ public class Cache{
         this.memory_blocks=memory_blocks;
     }
 
-    public void addData(){
+    /* public void addData(){
         File file= new File("Log.txt");
         try{
             FileWriter writer= new FileWriter(file);
@@ -95,6 +95,58 @@ public class Cache{
             System.out.println(e);
         }
     }
+     */
+
+    public void addData(int data, FileWriter writer) {
+        try {
+            // Process the passed data
+            if (findData(data) != -999) {
+                int dataIndex = findData(data);
+                ageUp(dataIndex);
+                blocks.get(dataIndex).resetAge();
+                cache_hit++;
+            } else if (cache_blocks != blocks.size()) {
+                ageUp(-999);
+                blocks.add(new Block(data));
+                cache_miss++;
+            } else if (cache_blocks == blocks.size()) {
+                int oldestIndex = findOldest();
+                ageUp(oldestIndex);
+                blocks.get(oldestIndex).replaceData(data);
+                cache_miss++;
+            }
+            memory_access_count++;
+
+            hit_rate = (float) cache_hit / memory_access_count;
+            miss_rate = (float) cache_miss / memory_access_count;
+
+            writeTextLog(data, writer, memory_access_count == memory_blocks);
+
+            // Display block step by step in console
+            for (int j = 0; j < cache_blocks; j++) {
+                try {
+                    System.out.println("Block: " + j + " |Age: " + blocks.get(j).getAge() + " |Data: " + blocks.get(j).getData());
+                }
+                // If block is null or doesn't exist
+                catch (IndexOutOfBoundsException e) {
+                    System.out.println("Block: " + j + " |Age: " + " |Data: Empty");
+                }
+            }
+
+            if (memory_access_count == memory_blocks) {
+                System.out.println("Data input complete. Finalizing calculations...");
+            }
+
+            System.out.println("");
+            System.out.println("Cache Hit Count: " + cache_hit);
+            System.out.println("Cache Miss Count: " + cache_miss);
+            System.out.println("Cache Hit Rate: " + hit_rate);
+            System.out.println("Cache Miss Rate: " + miss_rate);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
     //return index of oldest block
     public int findOldest(){
@@ -157,34 +209,30 @@ public class Cache{
     //    return cache_hit*cache_line *1+ cache_miss*cache_line*
     //}
 
-    public void writeTextLog(int data, FileWriter writer,boolean done){
-    //int i;
-    try{
-        writer.write("Data Input: " + data+"\n");
-        for (int j = 0; j< cache_blocks;j++){
-            try{
-                writer.write("Block: "+j+" |Age:"+blocks.get(j).getAge()+" |Data: "+ blocks.get(j).getData()+"\n");
-                
+    public void writeTextLog(int data, FileWriter writer, boolean done) {
+        try {
+            writer.write("Data Input: " + data + "\n");
+            for (int j = 0; j < cache_blocks; j++) {
+                try {
+                    writer.write("Block: " + j + " |Age:" + blocks.get(j).getAge() + " |Data: " + blocks.get(j).getData() + "\n");
+                }
+                // If block is null or doesn't exist
+                catch (IndexOutOfBoundsException e) {
+                    writer.write("Block: " + j + " |Age: " + " |Data: Empty" + "\n");
+                }
             }
-                //if block is null or doesn't exist
-            catch(IndexOutOfBoundsException e) {
-                writer.write("Block: "+j+ " |Age:  "+ "|Data: Empty"+"\n");
+            writer.write("\n");
+            if (done) {
+                writer.write("\nCache Hit Count: " + cache_hit + "\n");
+                writer.write("Cache Miss Count: " + cache_miss + "\n");
+                writer.write("Cache Hit Rate: " + hit_rate + "\n");
+                writer.write("Cache Miss Rate: " + miss_rate + "\n");
+                writer.close();
             }
-
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        writer.write("\n");
-        if (done==true){
-            writer.write("\nCache Hit Count: "+cache_hit+"\n");
-            writer.write("Cache Miss Count: "+cache_miss+"\n");
-            writer.write("Cache Hit Rate: "+hit_rate+"\n");
-            writer.write("Cache Miss Rate: "+miss_rate+"\n");
-            writer.close();
-
-        }
-    }catch(Exception e){
-        System.out.println(e);
-    }            
-}      
+    }
 public void incrementCacheHit() {
     cache_hit++;
     memory_access_count++;
