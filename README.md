@@ -371,6 +371,8 @@ Cache Behavior:
 The cache can store only 32 blocks at a time.
 As the sequence accesses 64 unique blocks sequentially, each block will be a miss when first accessed.
 Once the cache is full (after the first 32 accesses), each new block will replace the oldest block in the cache (LRU policy).
+
+Analysis:
 Cache Hits and Misses:
 
 There are no cache hits since each block number is only accessed once.
