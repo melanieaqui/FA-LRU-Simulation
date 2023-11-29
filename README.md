@@ -709,15 +709,33 @@ The cache can store only 32 blocks at a time.
 As the sequence accesses 64 unique blocks sequentially, each block will be a miss when first accessed.
 Once the cache is full (after the first 32 accesses), each new block will replace the oldest block in the cache (LRU policy).
 
+Output:
+
+Memory Access Count: 256
+
+Cache Hit Count: 0
+
+Cache Miss Count: 256
+
+Cache Hit Rate: 0.0
+
+Cache Miss Rate: 1.0
+
+Average Memory Access Time:12.0
+
+Total Memory Access Time: 3072.0
+
 Analysis:
+
 Cache Hits and Misses:
 
 There are no cache hits since each block number is only accessed once.
 Every access results in a cache miss.
 
-Memory Access Time:
+Memory Access Time: (Average Memory Access Time:12.0)
 The average memory access time includes the miss penalty.
 The total memory access time is a multiplication of the number of memory accesses and the average access time.
+
 Aging of Blocks:
 
 As new blocks are added, the existing blocks age (increase in age value).
