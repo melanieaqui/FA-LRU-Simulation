@@ -207,13 +207,13 @@ public class Cache {
 
     public float getAveMemAccessTime() {
         // load through
-        float miss_penalty = 1 + 10 + 1; // not confident cause load through nakalagay sa specs
+        float miss_penalty = 1 + 10 + 1; // load through
         float ave_access_time = hit_rate + miss_rate * miss_penalty;
         return ave_access_time;
     }
-    // public float getTotalAccessTime(){
-    // return cache_hit*cache_line *1+ cache_miss*cache_line*
-    // }
+    public float getTotalMemAccessTime() {
+        return memory_access_count * getAveMemAccessTime();
+    }
 
     public void writeTextLog(int data, FileWriter writer, boolean done) {
         try {
