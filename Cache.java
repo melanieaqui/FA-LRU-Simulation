@@ -44,6 +44,8 @@ public class Cache {
             }
             memory_access_count++;
             getAveMemAccessTime();
+            totalMemoryAccessTime = getTotalMemAccessTime();
+
 
             hit_rate = (float) cache_hit / memory_access_count;
             miss_rate = (float) cache_miss / memory_access_count;
