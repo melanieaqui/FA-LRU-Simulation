@@ -1,15 +1,17 @@
 # FA-LRU-Simulation
-To run the file open the FA-LRU-Simulator.jar file or run the java program from your console by typing 'javac Main.java' then 'java Main'
-
-### Project specifications
- 
-
 
 ### Authors
 - AQUINO, Melanie 
 - KHO, John 
 - PALAFOX, Luis
 - SANTOS, Jose
+
+To run the file open the FA-LRU-Simulator.jar file or run the java program from your console by typing 'javac Main.java' then 'java Main'
+
+### Project specifications
+The group was tasked to develop a simulation of full associative mapping using the Least Recently Used replacement algorithm (FA-LRU). The simulation consists of 32 blocks, with the user input serving as the number of memory blocks.
+
+
   
 Detailed Analysis of the Test Cases.
 
