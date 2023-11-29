@@ -14,9 +14,8 @@ The group was tasked to develop a simulation of full associative mapping using t
   
 ### Detailed Analysis of the Test Cases.
 
-Detailed Analysis of the Test Cases.
 
-a.) Sequential sequence: up to 2n cache block. Repeat the sequence four times. Example: 0,1,2,3,...,2n-1 {4x}
+### a.) Sequential sequence: up to 2n cache block. Repeat the sequence four times. Example: 0,1,2,3,...,2n-1 {4x}
 
 This sequence involves accessing cache blocks in a sequential order from 0 to 2n - 1.
 Since n = 32, 2n - 1 equals 63.
@@ -726,7 +725,7 @@ The age helps determine which block is the oldest for replacement under the LRU 
 
 This output indicates the expected behavior of a cache under the given test conditions. The lack of cache hits is due to the nature of the sequential access pattern and the single access of each block, which does not leverage the benefit of a cache designed to improve performance for repeated accesses of the same data.
 
-b.) Random sequence: containing 4n blocks.
+### b.) Random sequence: containing 4n blocks.
 
 Input: 
 
@@ -856,7 +855,7 @@ Total Memory Access Time: Sums up the total time taken for all accesses. The hig
 LRU Limitation: Demonstrates the limitation of LRU (Least Recently Used) policy in handling random data accesses.
 
 
-c.) Mid-repeat blocks: Start at block 0, repeat the sequence in the middle two times up to n-1 blocks, after
+### c.) Mid-repeat blocks: Start at block 0, repeat the sequence in the middle two times up to n-1 blocks, after
 which continue up to 2n. Then, repeat the sequence four times. Example: if n=8, sequence=0, 1,2,3,4,5,6,
 1,2,3,4,5,6, 7,8,9,10,11,12,13,14,15 {4x}
 
