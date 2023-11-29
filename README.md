@@ -11,6 +11,7 @@ To run the fapp open the FA-LRU-Simulator.jar file. Alternatively you may run th
 ## Project specifications
 The group was tasked to develop a simulation of full associative mapping using the Least Recently Used replacement algorithm (FA-LRU). The simulation consists of 32 blocks, with the number of memory blocks determined by the user. 
 
+## Walkthrough Video - https://drive.google.com/file/d/1FaioVfog5vbJs_6f86JeD5PJkHS-Jlz2/view
   
 ## Detailed Analysis of the Test Cases.
 
