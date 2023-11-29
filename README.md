@@ -367,6 +367,7 @@ Total Memory Access Time: 3072.0
 
 Explanation: 
 
+
 Cache Behavior:
 The cache can store only 32 blocks at a time.
 As the sequence accesses 64 unique blocks sequentially, each block will be a miss when first accessed.
@@ -482,6 +483,7 @@ Total Memory Access Time: 1514.0
 ----------------------------------------
 
 Explanation: 
+
 
 Cache Behavior:
 
@@ -609,13 +611,14 @@ Total Memory Access Time: 830.00006
 
 Explanation: 
 
-Context
+
+Context:
 This test case involves a sequence that starts at block 0, repeats a part of the sequence in the middle, and then continues up to 2n blocks.
 The cache has 32 blocks (n = 32).
 The sequence repeats four times.
 FA + LRU Load-Through Read Policy is applied.
 
-Output
+Output:
 Blocks Status: Displays the current data in each cache block along with their ages.
 Memory Access Count: 126 (each block is accessed once, and the middle sequence repeats twice).
 Cache Hit Count: 62 (hits occur during the mid-sequence repetition).
