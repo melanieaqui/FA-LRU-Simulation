@@ -155,14 +155,15 @@ public class Cache {
                 }
             }
             writer.write("\n");
+            writer.write("\nMemory Access Count: " + memory_access_count + "\n");
+            writer.write("\nCache Hit Count: " + cache_hit + "\n");
+            writer.write("Cache Miss Count: " + cache_miss + "\n");
+            writer.write("Cache Hit Rate: " + hit_rate + "\n");
+            writer.write("Cache Miss Rate: " + miss_rate + "\n");
+            writer.write("Average Memory Access Time:" + ave_access_time+ "\n");
+            writer.write("Total Memory Access Time: " + getTotalMemAccessTime() + "\n");
             if (done) {
-                writer.write("\nMemory Access Count: " + memory_access_count + "\n");
-                writer.write("\nCache Hit Count: " + cache_hit + "\n");
-                writer.write("Cache Miss Count: " + cache_miss + "\n");
-                writer.write("Cache Hit Rate: " + hit_rate + "\n");
-                writer.write("Cache Miss Rate: " + miss_rate + "\n");
-                writer.write("Average Memory Access Time:" + ave_access_time+ "\n");
-                writer.write("Total Memory Access Time: " + getTotalMemAccessTime() + "\n");
+
                 writer.close();
             }
         } catch (Exception e) {
