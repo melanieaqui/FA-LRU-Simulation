@@ -1,6 +1,6 @@
 # FA-LRU-Simulation
 
-### Authors
+## Authors
 - AQUINO, Melanie | code, write-up (project specs)
 - KHO, John | code, video, GUI
 - PALAFOX, Luis | code, write-up (test cases)
@@ -8,11 +8,11 @@
 
 To run the fapp open the FA-LRU-Simulator.jar file. Alternatively you may run the java source codes from your console by typing 'javac Main.java' then 'java Main'. 
 
-### Project specifications
+## Project specifications
 The group was tasked to develop a simulation of full associative mapping using the Least Recently Used replacement algorithm (FA-LRU). The simulation consists of 32 blocks, with the number of memory blocks determined by the user. 
 
   
-### Detailed Analysis of the Test Cases.
+## Detailed Analysis of the Test Cases.
 
 
 ### a.) Sequential sequence: up to 2n cache block. Repeat the sequence four times. Example: 0,1,2,3,...,2n-1 {4x}
@@ -964,86 +964,163 @@ Input:
 Output:
 
 Block: 0 |Age: 31 |Data: 32
+
 Block: 1 |Age: 30 |Data: 33
+
 Block: 2 |Age: 29 |Data: 34
+
 Block: 3 |Age: 28 |Data: 35
+
 Block: 4 |Age: 27 |Data: 36
+
 Block: 5 |Age: 26 |Data: 37
+
 Block: 6 |Age: 25 |Data: 38
+
 Block: 7 |Age: 24 |Data: 39
+
 Block: 8 |Age: 23 |Data: 40
+
 Block: 9 |Age: 22 |Data: 41
+
 Block: 10 |Age: 21 |Data: 42
+
 Block: 11 |Age: 20 |Data: 43
+
 Block: 12 |Age: 19 |Data: 44
+
 Block: 13 |Age: 18 |Data: 45
+
 Block: 14 |Age: 17 |Data: 46
+
 Block: 15 |Age: 16 |Data: 47
+
 Block: 16 |Age: 15 |Data: 48
+
 Block: 17 |Age: 14 |Data: 49
+
 Block: 18 |Age: 13 |Data: 50
+
 Block: 19 |Age: 12 |Data: 51
+
 Block: 20 |Age: 11 |Data: 52
+
 Block: 21 |Age: 10 |Data: 53
+
 Block: 22 |Age: 9 |Data: 54
+
 Block: 23 |Age: 8 |Data: 55
+
 Block: 24 |Age: 7 |Data: 56
+
 Block: 25 |Age: 6 |Data: 57
+
 Block: 26 |Age: 5 |Data: 58
+
 Block: 27 |Age: 4 |Data: 59
+
 Block: 28 |Age: 3 |Data: 60
+
 Block: 29 |Age: 2 |Data: 61
+
 Block: 30 |Age: 1 |Data: 62
+
 Block: 31 |Age: 0 |Data: 63
 
+
 Memory Access Count: 126
+
 Cache Hit Count: 62
+
 Cache Miss Count: 64
+
 Cache Hit Rate: 0.4920635
+
 Cache Miss Rate: 0.50793654
+
 Average Memory Access Time:6.587302
+
 Total Memory Access Time: 830.00006
+
 
 ----------------------------------------
 Block: 0 |Age: 31 |Data: 32
+
 Block: 1 |Age: 30 |Data: 33
+
 Block: 2 |Age: 29 |Data: 34
+
 Block: 3 |Age: 28 |Data: 35
+
 Block: 4 |Age: 27 |Data: 36
+
 Block: 5 |Age: 26 |Data: 37
+
 Block: 6 |Age: 25 |Data: 38
+
 Block: 7 |Age: 24 |Data: 39
+
 Block: 8 |Age: 23 |Data: 40
+
 Block: 9 |Age: 22 |Data: 41
+
 Block: 10 |Age: 21 |Data: 42
+
 Block: 11 |Age: 20 |Data: 43
+
 Block: 12 |Age: 19 |Data: 44
+
 Block: 13 |Age: 18 |Data: 45
+
 Block: 14 |Age: 17 |Data: 46
+
 Block: 15 |Age: 16 |Data: 47
+
 Block: 16 |Age: 15 |Data: 48
+
 Block: 17 |Age: 14 |Data: 49
+
 Block: 18 |Age: 13 |Data: 50
+
 Block: 19 |Age: 12 |Data: 51
+
 Block: 20 |Age: 11 |Data: 52
+
 Block: 21 |Age: 10 |Data: 53
+
 Block: 22 |Age: 9 |Data: 54
+
 Block: 23 |Age: 8 |Data: 55
+
 Block: 24 |Age: 7 |Data: 56
+
 Block: 25 |Age: 6 |Data: 57
+
 Block: 26 |Age: 5 |Data: 58
+
 Block: 27 |Age: 4 |Data: 59
+
 Block: 28 |Age: 3 |Data: 60
+
 Block: 29 |Age: 2 |Data: 61
+
 Block: 30 |Age: 1 |Data: 62
+
 Block: 31 |Age: 0 |Data: 63
 
+
 Memory Access Count: 126
+
 Cache Hit Count: 62
+
 Cache Miss Count: 64
+
 Cache Hit Rate: 0.4920635
+
 Cache Miss Rate: 0.50793654
+
 Average Memory Access Time:6.587302
+
 Total Memory Access Time: 830.00006
 
 ----------------------------------------
@@ -1086,6 +1163,8 @@ Cache Misses: High at the beginning and after the mid-sequence repetition, indic
 
 Hit and Miss Rates: More balanced compared to the random sequence, showing better cache performance due to repetition.
 
+
+## Summary of Contributions
 |AQUINO, Melanie| Back-end code, debugging                        |
 
 |KHO, John      | Front-end code, debugging, walkthrough vide     |
