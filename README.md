@@ -18,8 +18,345 @@ a.) Sequential sequence: up to 2n cache block. Repeat the sequence four times. E
 Input:
 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
 Output:
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 64
+Cache Hit Count: 0
+Cache Miss Count: 64
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 768.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 64
+Cache Hit Count: 0
+Cache Miss Count: 64
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 768.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 128
+Cache Hit Count: 0
+Cache Miss Count: 128
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 1536.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 128
+Cache Hit Count: 0
+Cache Miss Count: 128
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 1536.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 192
+Cache Hit Count: 0
+Cache Miss Count: 192
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 2304.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 192
+Cache Hit Count: 0
+Cache Miss Count: 192
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 2304.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 256
+Cache Hit Count: 0
+Cache Miss Count: 256
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 3072.0
+
+----------------------------------------
+Block: 0 |Age: 31 |Data: 32
+Block: 1 |Age: 30 |Data: 33
+Block: 2 |Age: 29 |Data: 34
+Block: 3 |Age: 28 |Data: 35
+Block: 4 |Age: 27 |Data: 36
+Block: 5 |Age: 26 |Data: 37
+Block: 6 |Age: 25 |Data: 38
+Block: 7 |Age: 24 |Data: 39
+Block: 8 |Age: 23 |Data: 40
+Block: 9 |Age: 22 |Data: 41
+Block: 10 |Age: 21 |Data: 42
+Block: 11 |Age: 20 |Data: 43
+Block: 12 |Age: 19 |Data: 44
+Block: 13 |Age: 18 |Data: 45
+Block: 14 |Age: 17 |Data: 46
+Block: 15 |Age: 16 |Data: 47
+Block: 16 |Age: 15 |Data: 48
+Block: 17 |Age: 14 |Data: 49
+Block: 18 |Age: 13 |Data: 50
+Block: 19 |Age: 12 |Data: 51
+Block: 20 |Age: 11 |Data: 52
+Block: 21 |Age: 10 |Data: 53
+Block: 22 |Age: 9 |Data: 54
+Block: 23 |Age: 8 |Data: 55
+Block: 24 |Age: 7 |Data: 56
+Block: 25 |Age: 6 |Data: 57
+Block: 26 |Age: 5 |Data: 58
+Block: 27 |Age: 4 |Data: 59
+Block: 28 |Age: 3 |Data: 60
+Block: 29 |Age: 2 |Data: 61
+Block: 30 |Age: 1 |Data: 62
+Block: 31 |Age: 0 |Data: 63
+
+Memory Access Count: 256
+Cache Hit Count: 0
+Cache Miss Count: 256
+Cache Hit Rate: 0.0
+Cache Miss Rate: 1.0
+Average Memory Access Time:12.0
+Total Memory Access Time: 3072.0
+
+----------------------------------------
 
 Explanation: 
+
 
 b.) Random sequence: containing 4n blocks.
 Input: 
