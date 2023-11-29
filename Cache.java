@@ -43,12 +43,10 @@ public class Cache {
                 cache_miss++;
             }
             memory_access_count++;
+
+            updateRates();
             getAveMemAccessTime();
             totalMemoryAccessTime = getTotalMemAccessTime();
-
-
-            hit_rate = (float) cache_hit / memory_access_count;
-            miss_rate = (float) cache_miss / memory_access_count;
 
             writeTextLog(data, writer, memory_access_count == memory_blocks);
 
@@ -73,7 +71,9 @@ public class Cache {
             System.out.println("Cache Miss Count: " + cache_miss);
             System.out.println("Cache Hit Rate: " + hit_rate);
             System.out.println("Cache Miss Rate: " + miss_rate);
-            System.out.println("Average Memory Access Time: " + getAveMemAccessTime());
+            System.out.println("Average Memory Access Time: " +ave_access_time );
+            System.out.println("Total Memory Access Time: " + totalMemoryAccessTime );
+
 
         } catch (Exception e) {
             System.out.println(e);
@@ -133,8 +133,8 @@ public class Cache {
 
     public float getAveMemAccessTime() {
         // load through
-        float miss_penalty = 1 + 10 + 1; // not confident cause load through nakalagay sa specs
-        float ave_access_time = hit_rate + miss_rate * miss_penalty;
+        float miss_penalty = 1 + 10 + 1; // load through nakalagay sa specs
+        this.ave_access_time = hit_rate + miss_rate * miss_penalty;
         return ave_access_time;
     }
     public float getTotalMemAccessTime() {
@@ -161,8 +161,8 @@ public class Cache {
                 writer.write("Cache Miss Count: " + cache_miss + "\n");
                 writer.write("Cache Hit Rate: " + hit_rate + "\n");
                 writer.write("Cache Miss Rate: " + miss_rate + "\n");
-                writer.write("Average Memory Access Time:" + ave_access_time + "\n");
-                writer.write("Total Memory Access Time: " + totalMemoryAccessTime + "\n");
+                writer.write("Average Memory Access Time:" + ave_access_time+ "\n");
+                writer.write("Total Memory Access Time: " + getTotalMemAccessTime() + "\n");
                 writer.close();
             }
         } catch (Exception e) {
