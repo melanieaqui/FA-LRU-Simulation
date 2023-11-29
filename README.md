@@ -379,6 +379,7 @@ This output indicates the expected behavior of a cache under the given test cond
 b.) Random sequence: containing 4n blocks.
 Input: 
 54 12 27 41 5 62 30 18 8 47 55 9 34 59 38 16 42 29 25 49 45 23 6 7 50 56 51 53 28 35 0 11 60 61 33 37 19 44 22 15 46 26 40 31 39 2 21 1 10 17 58 4 48 3 14 36 57 52 32 24 20 43 63
+
 Output:
 
 Explanation: 
