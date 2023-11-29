@@ -734,87 +734,163 @@ Input:
 Output:
 
 Block: 0 |Age: 29 |Data: 61
+
 Block: 1 |Age: 28 |Data: 33
+
 Block: 2 |Age: 27 |Data: 37
+
 Block: 3 |Age: 26 |Data: 19
+
 Block: 4 |Age: 25 |Data: 44
+
 Block: 5 |Age: 24 |Data: 22
+
 Block: 6 |Age: 23 |Data: 15
+
 Block: 7 |Age: 22 |Data: 46
+
 Block: 8 |Age: 21 |Data: 26
+
 Block: 9 |Age: 20 |Data: 40
+
 Block: 10 |Age: 19 |Data: 31
+
 Block: 11 |Age: 18 |Data: 39
+
 Block: 12 |Age: 17 |Data: 2
+
 Block: 13 |Age: 16 |Data: 21
+
 Block: 14 |Age: 0 |Data: 1
+
 Block: 15 |Age: 31 |Data: 11
+
 Block: 16 |Age: 15 |Data: 10
+
 Block: 17 |Age: 14 |Data: 17
+
 Block: 18 |Age: 13 |Data: 58
+
 Block: 19 |Age: 12 |Data: 4
+
 Block: 20 |Age: 11 |Data: 48
+
 Block: 21 |Age: 10 |Data: 3
+
 Block: 22 |Age: 9 |Data: 14
+
 Block: 23 |Age: 8 |Data: 36
+
 Block: 24 |Age: 7 |Data: 57
+
 Block: 25 |Age: 6 |Data: 52
+
 Block: 26 |Age: 5 |Data: 32
+
 Block: 27 |Age: 4 |Data: 24
+
 Block: 28 |Age: 3 |Data: 20
+
 Block: 29 |Age: 2 |Data: 43
+
 Block: 30 |Age: 1 |Data: 63
+
 Block: 31 |Age: 30 |Data: 60
 
 Memory Access Count: 128
+
 Cache Hit Count: 2
+
 Cache Miss Count: 126
+
 Cache Hit Rate: 0.015625
+
 Cache Miss Rate: 0.984375
+
 Average Memory Access Time:11.828125
+
 Total Memory Access Time: 1514.0
 
 ----------------------------------------
 Block: 0 |Age: 29 |Data: 61
+
 Block: 1 |Age: 28 |Data: 33
+
 Block: 2 |Age: 27 |Data: 37
+
 Block: 3 |Age: 26 |Data: 19
+
 Block: 4 |Age: 25 |Data: 44
+
 Block: 5 |Age: 24 |Data: 22
+
 Block: 6 |Age: 23 |Data: 15
+
 Block: 7 |Age: 22 |Data: 46
+
 Block: 8 |Age: 21 |Data: 26
+
 Block: 9 |Age: 20 |Data: 40
+
 Block: 10 |Age: 19 |Data: 31
+
 Block: 11 |Age: 18 |Data: 39
+
 Block: 12 |Age: 17 |Data: 2
+
 Block: 13 |Age: 16 |Data: 21
+
 Block: 14 |Age: 0 |Data: 1
+
 Block: 15 |Age: 31 |Data: 11
+
 Block: 16 |Age: 15 |Data: 10
+
 Block: 17 |Age: 14 |Data: 17
+
 Block: 18 |Age: 13 |Data: 58
+
 Block: 19 |Age: 12 |Data: 4
+
 Block: 20 |Age: 11 |Data: 48
+
 Block: 21 |Age: 10 |Data: 3
+
 Block: 22 |Age: 9 |Data: 14
+
 Block: 23 |Age: 8 |Data: 36
+
 Block: 24 |Age: 7 |Data: 57
+
 Block: 25 |Age: 6 |Data: 52
+
 Block: 26 |Age: 5 |Data: 32
+
 Block: 27 |Age: 4 |Data: 24
+
 Block: 28 |Age: 3 |Data: 20
+
 Block: 29 |Age: 2 |Data: 43
+
 Block: 30 |Age: 1 |Data: 63
+
 Block: 31 |Age: 30 |Data: 60
 
+
 Memory Access Count: 128
+
 Cache Hit Count: 2
+
 Cache Miss Count: 126
+
 Cache Hit Rate: 0.015625
+
 Cache Miss Rate: 0.984375
+
 Average Memory Access Time:11.828125
+
 Total Memory Access Time: 1514.0
+
 
 ----------------------------------------
 
@@ -992,11 +1068,11 @@ Cache Misses: High at the beginning and after the mid-sequence repetition, indic
 
 Hit and Miss Rates: More balanced compared to the random sequence, showing better cache performance due to repetition.
 
-|AQUINO, Melanie| Back-end code, debugging      |
+|AQUINO, Melanie| Back-end code, debugging                        |
 
-|KHO, John      | Front-end code, debugging     |
+|KHO, John      | Front-end code, debugging, walkthrough vide     |
 
-| SANTOS, Jose  | Back-end code                 |
+| SANTOS, Jose  | Back-end code                                   |
 
-|PALAFOX, Luis  | Debugging, Test Case          |
+|PALAFOX, Luis  | Debugging, Test Case                            |
 
