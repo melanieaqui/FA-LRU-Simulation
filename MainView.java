@@ -48,7 +48,8 @@ public class MainView {
                     MainView.this.dataInputField.setEnabled(true);
                     MainView.this.addButton.setEnabled(true);
                 } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(MainView.this.mainFrame, "Please enter a valid integer for memory blocks.");
+                    JOptionPane.showMessageDialog(MainView.this.mainFrame,
+                            "Please enter a valid integer for memory blocks.");
                 }
             }
         });
@@ -99,6 +100,8 @@ public class MainView {
                 .append("\nCache Miss Count: ").append(this.cache.getCacheMiss())
                 .append("\nCache Hit Rate: ").append(this.cache.getHitRate())
                 .append("\nCache Miss Rate: ").append(this.cache.getMissRate())
+                .append("\nAverage Memory Access Time:").append(this.cache.getAveMemAccessTime())
+                // .append("\nTotal Access Time:").append(this.cache.getTotalAccessTime)
                 .append("\n----------------------------------------\n");
         this.resultArea.append(displayText.toString());
     }
