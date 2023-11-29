@@ -16,89 +16,13 @@ public class Cache {
     private float hit_rate;
     private float miss_rate;
     private float ave_access_time;
+    private float totalMemoryAccessTime;
     static List<Block> blocks = new ArrayList<Block>();
 
     public Cache(int memory_blocks) {
         this.memory_blocks = memory_blocks;
     }
 
-    /*
-     * public void addData(){
-     * File file= new File("Log.txt");
-     * try{
-     * FileWriter writer= new FileWriter(file);
-     * 
-     * Scanner scanner = new Scanner(System.in);
-     * int data;
-     * for (int i=0;i<memory_blocks; i++){
-     * //user input Data
-     * System.out.println("Enter Data");
-     * 
-     * data = scanner.nextInt();
-     * 
-     * //hit
-     * if(findData(data)!=-999){
-     * int dataIndex = findData(data);
-     * ageUp(dataIndex);
-     * blocks.get(dataIndex).resetAge();
-     * cache_hit++;
-     * }
-     * //not yet full
-     * else if (cache_blocks!=blocks.size()){
-     * //miss
-     * if(findData(data) == -999) {
-     * ageUp(-999);
-     * blocks.add(new Block(data));
-     * cache_miss++;
-     * }
-     * 
-     * }
-     * //data is full and not hit so replace oldest
-     * else if (cache_blocks == blocks.size()){
-     * int oldestIndex =findOldest();
-     * ageUp(oldestIndex);
-     * blocks.get(oldestIndex).replaceData(data);
-     * cache_miss++;
-     * }
-     * memory_access_count++;
-     * 
-     * hit_rate = (float)cache_hit/ memory_access_count;
-     * miss_rate = (float)cache_miss/ memory_access_count;
-     * if (i==memory_blocks-1){
-     * writeTextLog(data, writer,true);
-     * }
-     * else
-     * writeTextLog(data, writer,false);
-     * 
-     * //display block step by step in console
-     * for (int j = 0; j< cache_blocks;j++){
-     * try{
-     * System.out.println("Block: "+j+" |Age:"+blocks.get(j).getAge()+" |Data: "+
-     * blocks.get(j).getData());
-     * 
-     * }
-     * //if block is null or doesn't exist
-     * catch(IndexOutOfBoundsException e) {
-     * System.out.println("Block: "+j+ " |Age:  "+ "|Data: Empty");
-     * }
-     * }
-     * 
-     * }
-     * 
-     * System.out.println("");
-     * System.out.println("Cache Hit Count: "+cache_hit);
-     * System.out.println("Cache Miss Count: "+cache_miss);
-     * 
-     * System.out.println("Cache Hit Rate: "+ hit_rate);
-     * System.out.println("Cache Miss Rate: "+ miss_rate);
-     * 
-     * scanner.close();
-     * 
-     * }catch(Exception e){
-     * System.out.println(e);
-     * }
-     * }
-     */
 
     public void addData(int data, FileWriter writer) {
         try {
@@ -207,7 +131,7 @@ public class Cache {
 
     public float getAveMemAccessTime() {
         // load through
-        float miss_penalty = 1 + 10 + 1; // load through
+        float miss_penalty = 1 + 10 + 1; // not confident cause load through nakalagay sa specs
         float ave_access_time = hit_rate + miss_rate * miss_penalty;
         return ave_access_time;
     }
@@ -230,11 +154,13 @@ public class Cache {
             }
             writer.write("\n");
             if (done) {
+                writer.write("\nMemory Access Count: " + memory_access_count + "\n");
                 writer.write("\nCache Hit Count: " + cache_hit + "\n");
                 writer.write("Cache Miss Count: " + cache_miss + "\n");
                 writer.write("Cache Hit Rate: " + hit_rate + "\n");
                 writer.write("Cache Miss Rate: " + miss_rate + "\n");
                 writer.write("Average Memory Access Time:" + ave_access_time + "\n");
+                writer.write("Total Memory Access Time: " + totalMemoryAccessTime + "\n");
                 writer.close();
             }
         } catch (Exception e) {
@@ -279,6 +205,10 @@ public class Cache {
 
     public int getAccessCount() {
         return memory_access_count;
+    }
+
+    public float getTotalMemoryAccessTime() {
+        return totalMemoryAccessTime;
     }
 
 }
