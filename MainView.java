@@ -66,18 +66,17 @@ public class MainView {
     }
 
     private void addDataToCache(String inputData) {
-        // Split the input data by spaces
         String[] dataItems = inputData.split("\\s+");
         try (FileWriter writer = new FileWriter("Log.txt", true)) {
             for (String item : dataItems) {
                 try {
                     int data = Integer.parseInt(item);
-                    this.cache.addData(data, writer);
+                    this.cache.addData(data, writer); // Call addData for each item
                 } catch (NumberFormatException e) {
-                    // Handle the case where the input is not a valid integer
                     System.out.println("Invalid input: " + item);
                 }
             }
+            displayCacheState(); // Update the display after processing all items
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,7 +100,7 @@ public class MainView {
                 .append("\nCache Hit Rate: ").append(this.cache.getHitRate())
                 .append("\nCache Miss Rate: ").append(this.cache.getMissRate())
                 .append("\nAverage Memory Access Time:").append(this.cache.getAveMemAccessTime())
-                .append("\nTotal Memory Access Time: ").append(this.cache.getTotalMemoryAccessTime()).append("\n")
+                .append("\nTotal Memory Access Time: ").append(this.cache.getTotalMemAccessTime()).append("\n")
                 .append("\n----------------------------------------\n");
         this.resultArea.append(displayText.toString());
     }
